@@ -1,0 +1,97 @@
+body{
+    background-image: url("https://img.freepik.com/premium-photo/view-foggy-mountain-landscape_1359-744.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+    .nav-links{
+        align-items: right;
+        align-content: right;
+        gap: 10rem;
+        margin-left: auto;
+        padding-right: 50px;
+    }
+    .nav-links a {
+        text-decoration: none;
+        color: rgb(41, 65, 151);
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+      
+      .nav-links a:hover {
+        color: #ebbe42;
+      }
+      .navbar {
+        
+        display: flex;
+        justify-content: space-between; 
+        align-items: center;
+        padding: 1rem 2rem;
+        color: rgb(77, 88, 236);
+      }
+     
+      
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+      
+      .slider-label {
+        display: block;
+        margin-top: 1rem;
+        font-size: 20px;
+      }
+      .title{
+        padding-left: 70px;
+        margin-left: 10px;
+      }
+      
+      input[type="range"] {
+        width: 100%;
+        margin-top: 0.5rem;
+        appearance: none;
+        height: 8px;
+        background: #ef6e6e;
+        border-radius: 5px;
+        outline: none;
+      }
+      
+      input[type="range"]::-webkit-slider-thumb {
+        appearance: none;
+        height: 30px;
+        width: 20px;
+        background: #007bff;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 0 2px #000;
+      }
+      
+      .save {
+        margin-top: 1.5rem;
+        font-weight: bold;
+        font-size: 20px;
+        color: #000;
+      }
+      .cal {
+        display: inline-block;
+        padding: 0.75rem 2rem;
+        background-color: #23c295;
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1.1rem;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+      }
+      
+      .cal:hover {
+        background-color: #4338ca; 
+      }
+      .card {
+        max-width: 900px;
+        margin: 2rem auto;
+        padding: 1rem;
+        background-color: #6376c8;
+        border-radius: 10px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }

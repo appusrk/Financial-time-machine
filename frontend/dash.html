@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="styleh.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script>
+        function updateSavings() {
+        var incomeSlider = document.getElementById('incomeSlider');
+        var expenseSlider = document.getElementById('expSlider');
+        var incomeDisplay = document.getElementById('incomeDisplay');
+        var expenseDisplay = document.getElementById('expDisplay');
+        var savingsDisplay = document.getElementById('saveDisplay');
+        var sav=document.getElementsByClassName('save');
+
+        
+        var income = parseInt(incomeSlider.value);
+        var expense = parseInt(expenseSlider.value);
+        var savings = income - expense;
+
+        incomeDisplay.textContent = income;
+        expenseDisplay.textContent = expense;
+        savingsDisplay.textContent = savings;
+        if(savings<0){
+        savingsDisplay.style.color="#990707";
+        save.style.color="#990707";
+        }
+        incomeSlider.addEventListener('input', updateSavings);
+        expSlider.addEventListener('input', updateSavings);
+
+        }
+
+       
+
+    </script>    
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Financial Time Machine</div>
+        <ul class="nav-links">
+          <a href="index.html">Home</a> |
+          
+          <a href="insights.html">Spending Insights</a> |
+          <a href="advisor.html">AI Advisor</a> |
+        </ul>
+      </nav><br>
+      <h1 class="title">Financial Dashboard</h1>
+      <div class="card">
+    <label class="slider-label">Income: ₹<span id="incomeDisplay">0</span></label>
+    <input type="range" id="incomeSlider" min="0" max="100000"  ><br>
+    <label class="slider-label">Expenses: ₹<span id="expDisplay">0</span></label>
+    <input type="range" id="expSlider" min="0" max="100000" ><br>
+    <div class="save">
+        Savings : <span id="saveDisplay">₹0</span>
+    </div><br><br>
+    <input type="submit" value="Calculate" class="cal" onclick="updateSavings()">
+</div>
+
+</body>
+</html>
+
+
+
+

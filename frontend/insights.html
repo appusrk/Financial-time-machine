@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="stylei.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insights</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Financial Time Machine</div>
+        <ul class="nav-links">
+          <a href="index.html">Home</a> |
+          
+          <a href="insights.html">Spending Insights</a> |
+          <a href="advisor.html">AI Advisor</a> |
+        </ul>
+      </nav><br>
+<div class="main">
+  <form onsubmit="displayChart(event)">
+    <label>Groceries</label>
+    <input type="number" id="groc"><br>
+    <label>Travel</label>
+    <input type="number" id="travel"><br>
+    <label>Medical</label>
+    <input type="number" id="med"><br>
+    <label>Miscellaneous</label>
+    <input type="number" id="mis"><br>
+    <input type="submit" value="Submit">
+  </form>
+  <div class="chart">
+  <canvas id="myCanvas" max-width:70px></canvas>
+</div>
+</div>
+  <script>
+    let chart; 
+
+    function displayChart(event) {
+      event.preventDefault();
+
+      
+      const grocery = parseFloat(document.getElementById("groc").value);
+      const travel = parseFloat(document.getElementById("travel").value);
+      const medical = parseFloat(document.getElementById("med").value);
+      const misc = parseFloat(document.getElementById("mis").value);
+
+      const xvalues = [grocery, travel, medical, misc];
+      const labels = ["Groceries", "Travel", "Medical", "Miscellaneous"];
+
+     
+      if (chart) chart.destroy();
+
+     
+      chart = new Chart(document.getElementById("myCanvas"), {
+        type: "line",
+        data: {
+          labels: labels,
+          datasets: [{
+            label:"Expenses",
+            data: xvalues,
+            backgroundColor: ["rgb(156, 15, 142)"],
+            pointBackgroundColor: '#4a148c',
+            borderColor: '#0d47a1'
+          }]
+        },
+        options: {
+          legend: {
+            display: false,
+        labels: {
+          color: '#1a237e'              
+        }
+      },
+          responsive: true,
+          plugins: {
+            title: {
+        display: true,
+        text: 'Spending Insights',
+        color: '#1a237e',
+        font: {
+          size: 20,
+          weight: 'bold'
+        }
+          }
+      }}}
+    );
+    }
+  </script>
+
+</body>
+</html>
+
+

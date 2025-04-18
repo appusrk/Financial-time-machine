@@ -1,0 +1,63 @@
+.chart{
+    width: 800px;
+    background-color: antiquewhite;
+    margin-top: 10px;
+    height: 400px;
+    border: 3px solid #121111;
+}
+.main{
+    display: flex;
+  gap:40px; 
+  align-items: flex-start;        
+  
+}
+form {
+    margin-left: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+    width: 350px;
+    border: 1px solid #121111;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+canvas{
+    width: 300%;
+}
+body{
+    background-image: url("https://img.freepik.com/premium-photo/view-foggy-mountain-landscape_1359-744.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+    .nav-links{
+        align-items: right;
+        align-content: right;
+        gap: 10rem;
+        margin-left: auto;
+        padding-right: 50px;
+    }
+    .nav-links a {
+        text-decoration: none;
+        color: rgb(41, 65, 151);
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+      
+      .nav-links a:hover {
+        color: #ebbe42;
+      }
+      .navbar {
+        
+        display: flex;
+        justify-content: space-between; 
+        align-items: center;
+        padding: 1rem 2rem;
+        color: rgb(77, 88, 236);
+      }
+     
+      
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
