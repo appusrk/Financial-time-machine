@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" type="text/css" href="stylea.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Advisor</title>
 </head>
 <body>
-    <div id="chatbox" style="width: 100%; max-width: 500px; margin: auto; border: 1px solid #ccc; padding: 15px; border-radius: 10px;">
+    <nav class="navbar">
+        <div class="logo">Financial Time Machine</div>
+        <ul class="nav-links">
+          <a href="home.html">Home</a> |
+          
+          <a href="insights.html">Spending Insights</a> |
+          <a href="advisor.html">AI Advisor</a> |
+        </ul>
+      </nav><br>
+    <div id="chatbox" style="width: 100%; max-width: 500px; margin: auto; border: 1px solid #100202; padding: 15px; border-radius: 10px;">
         <h2>AI Financial Advisor</h2>
         <div id="messages" style="height: 300px; overflow-y: auto; margin-bottom: 10px; background: #f9f9f9; padding: 10px; border-radius: 5px;"></div>
         <input id="userInput" type="text" placeholder="Ask a financial question..." style="width: 80%; padding: 10px;"/>

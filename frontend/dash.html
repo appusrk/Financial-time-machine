@@ -17,15 +17,35 @@
         
         var income = parseInt(incomeSlider.value);
         var expense = parseInt(expenseSlider.value);
-        var savings = income - expense;
+        fetch('/calculate',{
+            method:"POST",
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:
+                JSON.stringify({income,expense})
+            
+        })
+        .then(res=>res.json())
+        .then(data =>{
+            console.log("Received from server:", data);
+        savingsDisplay.textContent = `${data.savings}`;
+        if(data.savings<0){
+        savingsDisplay.style.color="#990707";
+        save.style.color="#990707";
+        }
+        else{savingsDisplay.style.color="#06402B";
+        save.style.color="#06402B";}
+        })
+        
+        .catch(error => {
+            console.error('Error:', error);
+        });
 
         incomeDisplay.textContent = income;
         expenseDisplay.textContent = expense;
         savingsDisplay.textContent = savings;
-        if(savings<0){
-        savingsDisplay.style.color="#990707";
-        save.style.color="#990707";
-        }
+        
         incomeSlider.addEventListener('input', updateSavings);
         expSlider.addEventListener('input', updateSavings);
 
@@ -48,9 +68,9 @@
       <h1 class="title">Financial Dashboard</h1>
       <div class="card">
     <label class="slider-label">Income: ₹<span id="incomeDisplay">0</span></label>
-    <input type="range" id="incomeSlider" min="0" max="100000"  ><br>
+    <input type="range" id="incomeSlider" min="0" max="100000" oninput="updateSavings()" ><br>
     <label class="slider-label">Expenses: ₹<span id="expDisplay">0</span></label>
-    <input type="range" id="expSlider" min="0" max="100000" ><br>
+    <input type="range" id="expSlider" min="0" max="100000" oninput="updateSavings()"><br>
     <div class="save">
         Savings : <span id="saveDisplay">₹0</span>
     </div><br><br>
