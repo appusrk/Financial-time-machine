@@ -35,16 +35,15 @@
 </div>
   <script>
     let chart; 
-
+      
     function displayChart(event) {
       event.preventDefault();
 
-      
       const grocery = parseFloat(document.getElementById("groc").value);
       const travel = parseFloat(document.getElementById("travel").value);
       const medical = parseFloat(document.getElementById("med").value);
       const misc = parseFloat(document.getElementById("mis").value);
-
+      
       const xvalues = [grocery, travel, medical, misc];
       const labels = ["Groceries", "Travel", "Medical", "Miscellaneous"];
 
@@ -84,7 +83,28 @@
           }
       }}}
     );
+    fetch('/savechart', {
+  method: "POST",
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({ grocery, travel, medical, misc })
+})
+.then(async res => {
+  if (!res.ok) {
+    const errorText = await res.text(); // <-- catches HTML or text error
+    throw new Error(`Server error: ${res.status}\n${errorText}`);
+  }
+  return res.json();
+})
+.then(data => {
+  console.log("Saved to MongoDB:", data);
+  alert("Data saved!");
+})
+.catch(err => console.error("Fetch Error:", err));
+
     }
+    
   </script>
 
 </body>

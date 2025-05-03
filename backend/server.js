@@ -1,16 +1,21 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+
 const app =express();
 const path= require('path');
 require('dotenv').config();
 const port= process.env.PORT ||5000;
 app.use(express.json());
+app.use(cors());
 
 app.use(express.static(path.join(__dirname,'..','frontend')));
+const Expensedata = require('./models/Expensedata');
 app.listen(port, () => {
     console.log(`Static site running at http://localhost:${port}`);
   });
+
+
 app.post('/calculate',(req,res)=>{
     const {income,expense} =req.body;
     const savings= income-expense;
@@ -18,15 +23,21 @@ app.post('/calculate',(req,res)=>{
 })
 
 
+mongoose.connect(process.env.MONGO_URI)
+.then(() => console.log('MongoDB connected!'))
+.catch(err => console.log(err));
+
+app.post('/savechart',(req,res)=>{
+  const {grocery, travel, medical, misc}=req.body;
+  
+  const newentry =new Expensedata({
+    grocery,travel,medical,misc
+  }); 
+  newentry.save()
+ 
+  .then(()=>res.json({message: 'Data saved sucessfuly'}))
+  .catch(err=>res.status(500).json({message: err.message}));
+
+});
 
 
-
-
-
-
-
-
-
-
-
-.3
