@@ -1,20 +1,9 @@
 body{
-    background-image: url("https://img.freepik.com/premium-photo/view-foggy-mountain-landscape_1359-744.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    }
-.heading{
-        font-family: 'Poppins', sans-serif;
-        padding-top:10px;
-        color: #ffffff;
-        text-align: center;
-        padding: 2rem 1rem;
-        background: linear-gradient(to right, #4f46e5, #7c3aed); /* Indigo to Purple */
-        letter-spacing: 1px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-}
-.nav-links{
+  background-image: url("https://img.freepik.com/premium-photo/view-foggy-mountain-landscape_1359-744.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  }
+  .nav-links{
     align-items: right;
     align-content: right;
     gap: 10rem;
@@ -45,12 +34,24 @@ body{
     font-size: 1.5rem;
     font-weight: bold;
   }
-  .continue-btn-container {
+  .calci{
     text-align: center;
-    margin-top: 3rem;
+    margin-top: 5px;
+    margin-left: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; 
+    width: 425px;
+    border: 1px solid #121111;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
-  
-  .continue-btn {
+  input{
+    width: 400px;
+    height: 40px;
+  }
+  .butt {
     display: inline-block;
     padding: 0.75rem 2rem;
     background-color: #4f46e5;
@@ -62,7 +63,6 @@ body{
     transition: background-color 0.3s ease;
   }
   
-  .continue-btn:hover {
+  .butt:hover {
     background-color: #4338ca; 
   }
-  
