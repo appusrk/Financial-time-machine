@@ -9,11 +9,14 @@ const port= process.env.PORT ||5000;
 app.use(express.json());
 app.use(cors());
 
-app.use(express.static(path.join(__dirname,'..','frontend')));
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/emi', express.static(path.join(__dirname, '..', 'frontend', 'emi-calculator', 'build')));
+app.get('/emi', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'frontend', 'emi-calculator', 'build'));
+});
 const Expensedata = require('./models/Expensedata');
-app.listen(port, () => {
-    console.log(`Static site running at http://localhost:${port}`);
-  });
+
 
 
 app.post('/calculate',(req,res)=>{
@@ -38,6 +41,9 @@ app.post('/savechart',(req,res)=>{
   .then(()=>res.json({message: 'Data saved sucessfuly'}))
   .catch(err=>res.status(500).json({message: err.message}));
 
+});
+app.listen(port, () => {
+  console.log(`Static site running at http://localhost:${port}`);
 });
 
 
