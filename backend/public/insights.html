@@ -15,6 +15,7 @@
           <a href="/emi">EMI Calculator</a> |
           <a href="insights.html">Spending Insights</a> |
           <a href="advisor.html">AI Advisor</a> |
+          <a href="/faq.html">FAQ</a>
         </ul>
       </nav><br>
 <div class="main">
@@ -92,7 +93,7 @@
 })
 .then(async res => {
   if (!res.ok) {
-    const errorText = await res.text(); // <-- catches HTML or text error
+    const errorText = await res.text(); 
     throw new Error(`Server error: ${res.status}\n${errorText}`);
   }
   return res.json();

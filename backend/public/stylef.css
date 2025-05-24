@@ -1,0 +1,90 @@
+body{
+    background-image: url("https://img.freepik.com/premium-photo/view-foggy-mountain-landscape_1359-744.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+    .heading{
+        font-family: 'Poppins', sans-serif;
+        padding-top:10px;
+        color: #ffffff;
+        text-align: center;
+        padding: 2rem 1rem;
+        background: linear-gradient(to right, #4f46e5, #7c3aed); /* Indigo to Purple */
+        letter-spacing: 1px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+}
+.nav-links{
+    align-items: right;
+    align-content: right;
+    gap: 10rem;
+    margin-left: auto;
+    padding-right: 50px;
+}
+.nav-links a {
+    text-decoration: none;
+    color: rgb(41, 65, 151);
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    color: #ebbe42;
+  }
+  .navbar {
+    
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 1rem 2rem;
+    color: rgb(77, 88, 236);
+  }
+ 
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: #f6f6a6;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      color: #333;
+    }
+
+    .faq-container h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #1a73e8;
+    }
+
+    .faq-section {
+      margin-bottom: 40px;
+    }
+
+    .faq-item {
+      margin-bottom: 20px;
+      font-size: x-large;
+    }
+
+    .faq-item h3 {
+      font-size: 1.1rem;
+      color: #0b5394;
+      margin-bottom: 8px;
+    }
+
+    .faq-item p {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #444;
+    }
+
+    .section-divider {
+      border-top: 2px solid #e2e8f0;
+      margin: 40px 0;
+    }
+  

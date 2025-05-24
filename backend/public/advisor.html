@@ -10,18 +10,60 @@
     <nav class="navbar">
         <div class="logo">Financial Time Machine</div>
         <ul class="nav-links">
-          <a href="index.html">Home</a> |
+          <a href="/index.html">Home</a> |
           <a href="/emi">EMI Calculator</a> |
-          <a href="insights.html">Spending Insights</a> |
+          <a href="/insights.html">Spending Insights</a> |
           <a href="advisor.html">AI Advisor</a> |
+          <a href="/faq.html">FAQ</a>
+
         </ul>
       </nav><br>
-    <div id="chatbox" style="width: 100%; max-width: 500px; margin: auto; border: 1px solid #100202; padding: 15px; border-radius: 10px;">
+    <div id="chatbox" style="width: 100%; max-height:800px; max-width: 500px; margin: auto; border: 1px solid #100202; padding: 15px; border-radius: 10px;">
         <h2>AI Financial Advisor</h2>
         <div id="messages" style="height: 300px; overflow-y: auto; margin-bottom: 10px; background: #f9f9f9; padding: 10px; border-radius: 5px;"></div>
         <input id="userInput" type="text" placeholder="Ask a financial question..." style="width: 80%; padding: 10px;"/>
         <button onclick="sendMessage()" style="padding: 10px;">Send</button>
       </div>
+         <script>
+      async function sendMessage() {
+        const input = document.getElementById("userInput");
+        const messageBox = document.getElementById("messages");
+        const userText = input.value.trim();
+        if (!userText) return;
+
+        
+        const userDiv = document.createElement("div");
+        userDiv.textContent = "You: " + userText;
+        messageBox.appendChild(userDiv);
+
+                input.value = "";
+
+        try {
+          const response = await fetch('/advice', {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ question: userText })
+          });
+
+          const data = await response.json();
+          const aiReply = data.reply || "Sorry, I couldn't get a response.";
+
+          const aiDiv = document.createElement("div");
+          aiDiv.textContent = "AI: " + aiReply;
+          aiDiv.style.marginTop = "5px";
+          messageBox.appendChild(aiDiv);
+
+          messageBox.scrollTop = messageBox.scrollHeight;
+        } catch (err) {
+          console.error("Error:", err);
+          const errorDiv = document.createElement("div");
+          errorDiv.textContent = "AI: Error getting response.";
+          messageBox.appendChild(errorDiv);
+        }
+      }
+    </script>
       
 </body>
 </html>

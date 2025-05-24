@@ -21,10 +21,11 @@ function App(){
     <nav className="navbar">
         <div className="logo">Financial Time Machine</div>
         <ul className="nav-links">
-          <a href="index.html">Home</a> |
+          <a href="/index.html">Home</a> |
           <a href="/emi">EMI Calculator</a> |
-          <a href="insights.html">Spending Insights</a> |
-          <a href="advisor.html">AI Advisor</a> |
+          <a href="/insights.html">Spending Insights</a> |
+          <a href="/advisor.html">AI Advisor</a> |
+          <a href="/faq.html">FAQ</a>
         </ul>
       </nav><br />
   <div className="calci"style={{ padding: '20px' }}>
